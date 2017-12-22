@@ -2,7 +2,8 @@
 
 from libnmap.parser import NmapParser
 import sys
-
+import os.path
+import json
 
 class NmapReportParser(object):
 
@@ -11,6 +12,10 @@ class NmapReportParser(object):
 
     def get_report_xml(self):
         self.nmap_report = NmapParser.parse_fromfile(self.filename) 
+
+    def get_report_json(self):
+        json_file = json.load(open(self.filename))
+        self.nmap_report = NmapParser.parse_fromdict(json_file) 
 
     def all_product_list(self):
         return sorted(set([ b.banner for a in self.nmap_report.hosts for b in a.services if 'product' in b.banner]))
@@ -36,7 +41,12 @@ class NmapReportParser(object):
 
 if __name__ == "__main__":
     nmap_report = NmapReportParser(sys.argv[1])
-    nmap_report.get_report_xml()
+    extension = os.path.splitext(sys.argv[1])[1][1:]
+    if extension == 'xml':
+        nmap_report.get_report_xml()
+    if extension == 'json':
+        nmap_report.get_report_json()
+
     print "---------------------usage-------------------"
     print "'all' means print all kinds of product"
     print "'80' means print port 80 opened host "
