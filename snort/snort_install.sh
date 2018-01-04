@@ -11,7 +11,7 @@ chmod -R 700 /usr/local/lib/snort_dynamicrules
 # download snort rules 
 # Before you download the snortrules-snapshot-29110.tar.gz you have to register, otherwise you could download community-rules.tar.gz instead.
 sudo cd /etc/snort/
-wget https://www.snort.org/downloads/registered/snortrules-snapshot-29110.tar.gz -O /tmp/snortrules-snapshot-29110.tar.gz
+wget https://www.snort.org/downloads/community/community-rules.tar.gz -O /tmp/snortrules-snapshot-29110.tar.gz
 sudo tar -xf /tmp/snortrules-snapshot-29110.tar.gz -C /etc/snort/
 sudo rm /tmp/snortrules-snapshot-29110.tar.gz
 touch /etc/snort/rules/white_list.rules
