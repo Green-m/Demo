@@ -8,7 +8,8 @@ mkdir -p /usr/local/lib/snort_dynamicrules
 chown -R snort:snort /usr/local/lib/snort_dynamicrules
 chmod -R 700 /usr/local/lib/snort_dynamicrules
 
-# download rules
+# download snort rules 
+# Before you download the snortrules-snapshot-29110.tar.gz you have to register, otherwise you could download community-rules.tar.gz instead.
 sudo cd /etc/snort/
 wget https://www.snort.org/downloads/registered/snortrules-snapshot-29110.tar.gz -O /tmp/snortrules-snapshot-29110.tar.gz
 sudo tar -xf /tmp/snortrules-snapshot-29110.tar.gz -C /etc/snort/
