@@ -13,9 +13,13 @@ import math
 
 logging.basicConfig(filename='./snort.log',level=logging.DEBUG,format='[%(levelname)s]%(asctime)s:%(message)s', datefmt='%Y%m%d%I%M')
 
+
 snort_command = 'snort -c /etc/snort/snort.conf -q -l /var/log/snort --pcap-list '
+#snort_command = 'snort -c /etc/snort/snort.conf -q -l /var/log/snort --pcap-show --pcap-list '
 DIR_TMP = './snort.tmp'
 config=ConfigParser.ConfigParser() 
+
+
 
 
 def process_openfiles(processname):
@@ -42,6 +46,9 @@ def call_snort(pcaplist_tohandle):
 def chunks(arr, m):
     n = int(math.ceil(len(arr) / float(m)))
     return [arr[i:i + n] for i in range(0, len(arr), n)]
+
+
+
 
 
 if __name__ == "__main__":
@@ -107,6 +114,7 @@ if __name__ == "__main__":
         logging.info("Total time {}s,{} files, {}s/file".format(round(stop_time-start_time,2),len(pcaplist_tohandle),round((stop_time-start_time)/len(pcaplist_tohandle),2)))
 
         pcaplist_handled += pcaplist_tohandle
+        pcaplist_handled = list(set(pcaplist_total) & set(pcaplist_handled))
 
 
         # writing temp files
