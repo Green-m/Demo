@@ -5,7 +5,7 @@ import json
 import sys
 
 
-SHODAN_API_KEY = "FWZjuMGUas6ZCBItqiWMJKDf9e2r5A18"
+SHODAN_API_KEY = "XXXXXXXXXXXXXXXX"
 limit = 200
 counter = 0
 
