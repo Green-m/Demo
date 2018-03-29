@@ -59,8 +59,7 @@ void start_shell()
 
     if (GetModuleFileName(NULL, path, sizeof(path)) == 0) {
         err = GetLastError();
-        printf("%s",path);
-        printf("Cannot get module file name (0x%08x)\n", err);
+        return;
         
     }
 
