@@ -1,0 +1,22 @@
+! Put user rules line by line in this file.
+! See https://adblockplus.org/en/filter-cheatsheet
+
+.metasploit.com/
+.harmonysecurity.com/
+.1password.com/
+.humblebundle.com/
+.rapid7.com/
+.gitbooks.io/
+.netflix.com/
+.github.com/
+.protonvpn.com/
+protonvpn.com/
+.slack.com/
+slack.com/
+.rapid7.com/
+.steamcommunity.com/
+
+
+
+
+
